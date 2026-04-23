@@ -99,5 +99,6 @@ ehthumbs.db
 *.tmp
 .cache/
 .pytest_cache/
+pytest-cache-files-*/
 .coverage
 htmlcov/
