@@ -104,7 +104,16 @@ python -m ruff check src/ tests/ --line-length 120
 
 
 ## Результаты
-Первые результаты на validation-выборке для моделей с feature engineering:
+Результаты на validation-выборке без feature engineering:
+| Модель | Accuracy | Precision | Recall | F1 | ROC-AUC | Примечание |
+|--------|----------|-----------|--------|----|---------|------------|
+| Baseline: Logistic Regression | 0.7965 | 0.6856 | 0.4892 | 0.5710 | 0.8438 | Baseline-модель на очищенных данных без новых признаков |
+| KNeighborsClassifier | 0.8009 | 0.6756 | 0.5406 | 0.6006 | 0.8388 | Простая нелинейная модель без feature engineering |
+| Decision Tree | 0.8102 | 0.6772 | 0.6006 | 0.6366 | 0.8693 | Дерево решений с ограничением глубины |
+| Random Forest | 0.8123 | 0.8175 | 0.4147 | 0.5502 | 0.8864 | Ансамбль деревьев без feature engineering |
+| Лучшая модель без FE: Gradient Boosting | 0.8288 | 0.7547 | 0.5653 | 0.6464 | 0.8892 | Лучшая модель среди экспериментов без новых признаков |
+
+Результаты на validation-выборке для моделей с feature engineering:
 | Модель | Accuracy | Precision | Recall | F1 | ROC-AUC | Примечание |
 |--------|----------|-----------|--------|----|---------|------------|
 | Baseline: Logistic Regression | 0.7969 | 0.6841 | 0.4838 | 0.5668 | 0.8521 | Baseline-модель для сравнения с более сложными подходами |
