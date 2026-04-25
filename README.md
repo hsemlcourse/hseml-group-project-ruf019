@@ -74,11 +74,15 @@ pip install -r requirements.txt
 
 # 5. Запустить ноутбук с экспериментами
 Откройте `notebooks/03_experiments.ipynb` и выполните ячейки сверху вниз
+```
 
-# 6. Запустить тесты
+Тесты запускаются следующим образом:
+```bash
 python -m pytest tests/test.py -p no:cacheprovider
+```
 
-# 7. Запустить линтер
+Линтер:
+```bash
 python -m ruff check src/ tests/ --line-length 120
 ```
 
