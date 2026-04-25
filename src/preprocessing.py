@@ -24,7 +24,7 @@ MONTH_TO_NUMBER = {
 
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
-    """Выполняет базовую очистку и удаляет некорректные строки"""
+    """Выполняет базовую очистку, удаляет некорректные строки и leakage-колонки"""
     cleaned = df.copy()
 
     cleaned["children"] = cleaned["children"].fillna(0)
@@ -42,6 +42,8 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     cleaned["children"] = cleaned["children"].astype(int)
     cleaned["agent"] = cleaned["agent"].astype(int)
     cleaned["company"] = cleaned["company"].astype(int)
+
+    cleaned = cleaned.drop(columns=LEAKAGE_COLUMNS, errors="ignore")
 
     return cleaned.reset_index(drop=True)
 
